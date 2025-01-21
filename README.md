@@ -58,7 +58,12 @@ project-name/
 ---
 
 ## Contributors
+<<<<<<< HEAD
 - Westin - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: Loves solving Rubik's Cubes in under a minute. Hello.
+=======
+- **prabh Guron** - BCIT CST Student with a passion for creating fun frontend user faces.
+- **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
+>>>>>>> 9775c83beff26d523f3aa05229230579cbe5b838
 
 ---
 
