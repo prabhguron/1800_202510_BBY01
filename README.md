@@ -58,7 +58,7 @@ project-name/
 ---
 
 ## Contributors
-- **Indy Grewal** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: Loves solving Rubik's Cubes in under a minute.
+- **prabh Guron** - BCIT CST Student with a passion for creating fun frontend user faces.
 - **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
 ---
