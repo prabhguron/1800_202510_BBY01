@@ -1,4 +1,4 @@
- const getStartedBtn = document.getElementById("signPageBtn");
+const getStartedBtn = document.getElementById("signPageBtn");
 const signUpButton = document.getElementById("signUpBtn");
 
 

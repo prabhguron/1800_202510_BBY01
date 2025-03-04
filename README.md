@@ -71,6 +71,8 @@ Example:
 - Code snippets for ___ algoirthm were adapted from resources such as [Stack Overflow](https://stackoverflow.com/) and [MDN Web Docs](https://developer.mozilla.org/).
 - Icons sourced from [FontAwesome](https://fontawesome.com/) and images from [Unsplash](https://unsplash.com/).
 
+- Streak icon credit: <a href="https://www.flaticon.com/free-icons/fire" title="fire icons">Fire icons created by Bahu Icons - Flaticon</a>
+
 ---
 
 ## Limitations and Future Work
