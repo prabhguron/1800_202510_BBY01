@@ -1,0 +1,38 @@
+@media only screen and (max-width : 700px){
+	#nav { 
+		display: none;
+	}
+	
+	#sort {
+		margin: auto;
+		align-content: center;
+	}
+	
+	
+		
+	.list {
+		align-content: ;
+		justify-content: ;
+		width: ;
+		background-color: ;
+		padding: 20px 50px;
+		margin: 20px;
+	}
+	
+	table {
+		margin: auto;
+	}
+	
+	td {
+		padding: 10px 20px;
+	}
+	
+}
+
+@media only screen and (max-width : 1281px) and (min-width : 701px){
+	
+}
+
+@media only screen and (max-width : 1600px) and (min-width : 1281px){
+	
+}
