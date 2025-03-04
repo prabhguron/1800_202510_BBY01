@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../pic.jpg');
+    background-color: lightgreen;
     background-size: cover;
     
 }
@@ -20,8 +20,9 @@ body{
     z-index: 1;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) ;
-    border: 1px solid #fff;
+    border: 1px solid black;
     border-radius: 10px;
+    padding: 20px;
 }
 .glass-container::before {
     content: '';
@@ -40,7 +41,7 @@ body{
     text-align: center;
 }
 h2{
-    color: white;
+    color: black;
     margin-top: 30px;
     margin-bottom: -20px;
     text-align: center;
@@ -56,13 +57,13 @@ input{
     border: none;
     border-radius: 10px;
     background: transparent;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid black;
+    color: black;
     font-size: 13px;
 }
 
 input::placeholder{
-    color: #fff;
+    color: black;
 }
 input:focus{
     outline: none;
@@ -100,11 +101,11 @@ button:hover{
 }
 p{
     font-size: 12px;
-    color: #fff;
+    color: black;
     margin-top: 15px;
 }
 #register{
     text-decoration: none;
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
