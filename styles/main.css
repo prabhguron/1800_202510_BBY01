@@ -39,7 +39,7 @@ body {
 }
 
 .navbaritem {
-    width: 33.3%;
+    width: 25%;
     float: left;
     border-radius: 10px;
 }
@@ -48,6 +48,6 @@ body {
     width: 48px;
     height: 48px;
     float: none;
-    margin-left: 40%;
+    margin-left: 25%;
     margin-top: 10%;
 }
