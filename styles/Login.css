@@ -1,28 +1,38 @@
-*{
+* {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
-    margin: 0;
+
+body {
     display: flex;
-    justify-content: center;
+    flex-direction: column; 
     align-items: center;
+    justify-content: flex-start; /* Align content to the top */
     height: 100vh;
     background-color: lightgreen;
-    background-size: cover;
-    
+    padding-top: 20px; /* Add some padding at the top */
 }
-.glass-container{
+
+#title {
+    margin-bottom: 0px; /* Add space between title and glass container */
+    text-align: center; /* Center the title */
+    font-size: 2rem; /* Increase title size */
+    color: black;
+
+}
+
+.glass-container {
     width: 300px;
     height: 350px;
     position: relative;
     z-index: 1;
     background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) ;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid black;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px;    
+    margin: 200px;
 }
 .glass-container::before {
     content: '';
@@ -108,4 +118,24 @@ p{
     text-decoration: none;
     color: black;
     font-weight: bold;
+}
+
+#nav {
+    background-color: lightgreen;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navList {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+    gap: 20px;
 }
