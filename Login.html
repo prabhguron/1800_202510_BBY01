@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>SignUp</title>
-    <meta name="comp1800 template" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toss Rite - Authentication</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/Login.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">Toss Rite</h1>
+  </header>
 
-
-
-    <link rel="stylesheet" href="styles/Login.css" />
-  </head>
-  <body>
-<h1 id="title">Toss Rite</h1>
-<div class="glass-container">
-    <div class="login-box">
-        <h2>Login</h2>
-        <form action="#" method="post"> 
-           <input type="text" id="username" name="username" required placeholder="UserName"> 
-           <input type="password" id="password" name="password" required placeholder="Password"> 
-           <div class="options">
-            <button type="submit"> Login</button>
-            <p>Don't have an account? <a href="Signup.html" id="register">Sign Up</a></p>
-
-           </div>
-
+  <main>
+    <div class="auth-container">
+      <div class="auth-box">
+        <h2 class="auth-title" id="authTitle">Sign Up</h2>
+        <form id="authForm">
+          <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required>
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" placeholder="Password" required>
+          </div>
+          <div class="options">
+            <div class="remember">
+              <input type="checkbox" id="remember">
+              <label for="remember">Remember me</label>
+            </div>
+            <a href="#" class="forgot">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn" id="authBtn">Sign Up</button>
+          <p class="switch-prompt">Already have an account? <a href="#" id="toggleAuth">Login</a></p>
         </form>
-
+      </div>
     </div>
-</div>
-  
+  </main>
 
-  </body>
+  <script type="module" src="scripts/firebaseAPI.js"></script>
+</body>
 </html>
