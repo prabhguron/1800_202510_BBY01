@@ -1,4 +1,4 @@
-@media only screen and (max-width : 700px){
+/*@media only screen and (max-width : 700px){*/
 	body {
 		background: linear-gradient(135deg, #9beb9b, #4cbb17);
 		background-size: 200% 200%;
@@ -44,6 +44,7 @@
 	}
 }
 
+/*
 @media only screen and (max-width : 1281px) and (min-width : 701px){
 	
 }
@@ -51,3 +52,4 @@
 @media only screen and (max-width : 1600px) and (min-width : 1281px){
 	
 }
+*/

@@ -1,4 +1,4 @@
-@media only screen and (max-width : 700px){
+/*@media only screen and (max-width : 700px){*/
 	body {
 		background: linear-gradient(135deg, #9beb9b, #4cbb17);
 		background-size: 200% 200%;
@@ -39,6 +39,7 @@
 	#sort {
 		width: fit-content; /* Adjust width to content */
     margin: 0 auto; /* Centers horizontally */
+		padding: 30px 10px;
 		font-size: 24px;
 	}
 	
@@ -66,6 +67,7 @@
 	
 	table {
 		margin: auto;
+		font-size: 30px;
 	}
 	
 	tr {
@@ -82,10 +84,11 @@
 	
 
 
+/*
 @media only screen and (max-width : 1281px) and (min-width : 701px){
 	
 }
 
 @media only screen and (max-width : 1600px) and (min-width : 1281px){
 	
-}
+}*/
