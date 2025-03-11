@@ -53,33 +53,40 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
+
 // Gets user doc and adds 1 point to points var
 async function addPoints() {
   const userInfo = await getUserInfo();
   if (userInfo) {
+  
     const user = auth.currentUser;
     const docRef = doc(db, "users", user.uid);
     userInfo.points ++;
     setDoc(docRef, userInfo);
-    
+    showPoints(user.uid)
+
   }
 }
+ function showPoints(user) {
 
+  const docRef = doc(db, "users", `${user}`); // Replace with currentId right now it's using test1 id gmail
 
-const docRef = doc(db, "users", "XSVFV7iwgIUjz5baMkK3rfNtzzS2"); // Replace with currentId right now it's using test1 id gmail
+  const unsubscribe = onSnapshot(docRef, (doc) => {
+  
+    if (doc.exists()) {
+      console.log("Current data: ", doc.data().points);
+      
+      document.getElementById("points").textContent = "points: " +doc.data().points;
+  
+  
+  
+    } else {
+      console.log("No such document!");
+    }
+  });
+  
+}
 
-const unsubscribe = onSnapshot(docRef, (doc) => {
-  if (doc.exists()) {
-    console.log("Current data: ", doc.data().points);
-    
-    document.getElementById("points").textContent = "points: " +doc.data().points;
-
-
-
-  } else {
-    console.log("No such document!");
-  }
-});
 
 
 
