@@ -80,7 +80,8 @@ function handleAuth(event) {
         const userData = {
           email: email,
           username: username,
-          createdAt: new Date().toISOString()
+          createdAt: new Date().toISOString(),
+          points : 0
         };
         
         // Save to Firestore

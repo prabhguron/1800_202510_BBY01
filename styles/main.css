@@ -10,6 +10,26 @@ body {
     text-align: center;
 }
 
+#button {
+    border-radius: 16px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    height: 64px;
+    font-size: 32px;
+}
+
+#button:hover {
+    background-color: lightgray;
+}
+
+#username {
+    font-size: 50px;
+}
+
 .streak {
     float: right;
     background-image: url("../images/streak.png");
