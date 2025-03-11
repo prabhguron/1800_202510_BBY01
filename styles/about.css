@@ -4,13 +4,14 @@
 		background-size: 200% 200%;
 		height: 100vh;
 		color: ;
+		text-align: center;
 	}
 	
 	.luckiest-guy-regular {
 		font-family: "Luckiest Guy", cursive;
 		font-weight: 400;
 		font-style: normal;
-		font-size: 80px;
+		font-size: 40px;
 	}
 	
 	.navbar {
@@ -34,52 +35,13 @@
     margin-left: 25%;
     margin-top: 10%;
 }
-	
-	
-	#sort {
-		width: fit-content; /* Adjust width to content */
-    margin: 0 auto; /* Centers horizontally */
-		font-size: 24px;
-	}
-	
-	h1{
-		text-align: center;
-		}
-
-	}
-	
-	
-		
-	.list {
-		align-content: ;
-		justify-content: ;
-		width: ;
-		background-color: ;
-		padding: 20px 50px;
-		margin: 20px;
+	h2 {
 		font-size: 30px;
 	}
 
-	.catgories, th {
-		font-size: 38px;
-}
-	
-	table {
-		margin: auto;
+	p {
+		font-size: 24px;
 	}
-	
-	tr {
-		padding: 10px;
-		margin: 10px;
-		background-color: ;
-}
-
-	td {
-		margin: 10px;
-		padding: 20px 30px;
-		background-color: ;
-	}
-	
 }
 
 @media only screen and (max-width : 1281px) and (min-width : 701px){
