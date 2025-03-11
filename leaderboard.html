@@ -5,24 +5,24 @@
         <meta name="comp1800 template" content="My 1800 App" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="styles/main.css" />
+<!--        <link rel="stylesheet" href="styles/main.css" />-->
         <link rel="stylesheet" href="styles/leaderboard.css"/>
         <!-- <link rel="stylesheet" href="styles/style.css" /> -->
+				<link rel="preconnect" href="https://fonts.googleapis.com">
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
 
-    <body>
-        <nav id="nav">
-            <h1 id="title">Toss Rite</h1>  
-            <div class="navIcons">
-              <ul class="navList">
-                <a href="/index.html"><li>Home</li></a>
-                <a href="/leaderboard.html"><li>Leaderboard</li></a>
-                <a href="/about.html"><li>About Us</li></a>
-              </ul>
-            </div>
-			</nav>
+    <body class="luckiest-guy-regular">
+			<div class="navbar">
+            <div class="navbaritem"><input type="image" src="images/tree.png"/></div>
+            <div class="navbaritem"><input type="image" src="images/home.png"/></div>
+            <div class="navbaritem"><input type="image" src="images/trophy.png"/></div>
+            <div class="navbaritem"><input type="image" src="images/community.png"/></div>
+        </div>
+			
          <div class="hero">
-            <h1>Leaderboard</h1>
+            <h1 class="luckiest-guy-regular">Leaderboard</h1>
         </div>
 				<div id="sort">
 						 <label for="">Sort by:</label>
@@ -33,7 +33,7 @@
 				</div>
         <div class="list">
              <table>
-								<tr>
+								<tr class="categories">
 									<th>#</th>
 									<th>Name</th>
 									<th>Points</th>
@@ -45,7 +45,7 @@
 								</tr>
 								<tr>
 									<td>2</td>
-									<td>Maria Ander</td>
+									<td>Maria Anders</td>
 									<td>90</td>
 								</tr>
 							 	<tr>
