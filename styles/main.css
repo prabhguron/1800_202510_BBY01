@@ -15,11 +15,13 @@ body {
     border-style: solid;
     border-color: black;
     background-color: white;
-    text-align: center;
     margin: auto;
     width: 50%;
     height: 64px;
     font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #button:hover {

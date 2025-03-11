@@ -1,6 +1,6 @@
 import { auth, db } from "./firebase-config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
-import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+import { doc, getDoc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 // Function to get the user info from the database
 async function getUserInfo() {
@@ -61,8 +61,27 @@ async function addPoints() {
     const docRef = doc(db, "users", user.uid);
     userInfo.points ++;
     setDoc(docRef, userInfo);
+    
   }
 }
+
+
+const docRef = doc(db, "users", "XSVFV7iwgIUjz5baMkK3rfNtzzS2"); // Replace with currentId right now it's using test1 id gmail
+
+const unsubscribe = onSnapshot(docRef, (doc) => {
+  if (doc.exists()) {
+    console.log("Current data: ", doc.data().points);
+    
+    document.getElementById("points").textContent = "points: " +doc.data().points;
+
+
+
+  } else {
+    console.log("No such document!");
+  }
+});
+
+
 
 // Add a point to the current users points
 document.getElementById('button').addEventListener('click', function(e) {
