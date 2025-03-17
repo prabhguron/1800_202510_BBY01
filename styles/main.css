@@ -8,20 +8,27 @@ body {
     width: 100%;
     margin: auto;
     text-align: center;
+    border: 1px solid black;
 }
 
-#button {
-    border-radius: 16px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    margin: auto;
-    width: 50%;
-    height: 64px;
-    font-size: 32px;
+#img{
+    border-radius: 100%;
+    background-origin: padding-box;
+    width: 40%; /* Make the image fill the div */
+    height: 10%; /* Make the image fill the div */
+    border: 1px solid black;
+    
+    
+}
+#button{
+    width: 20%; /* Same width as #img */
+    height: 100%; /* Same height as #img */
+    margin: 0 auto; /* Center the button div */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    text-align: center;
+    height: 400px;
 }
 
 #button:hover {
