@@ -2,45 +2,56 @@ body {
     background-color: lightgreen;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .hero {
     width: 100%;
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 95px); /* Make hero take up full height minus navbar and some spacing */
+    position: relative; /* For absolute positioning of children */
+    padding-bottom: 100px; /* Add space for the button at bottom */
+}
+
+#img {
+    border-radius: 100%;
+    width: 100%;
+    max-width: 100px;
     border: 1px solid black;
 }
 
-#img{
-    border-radius: 100%;
-    background-origin: padding-box;
-    width: 40%; /* Make the image fill the div */
-    height: 10%; /* Make the image fill the div */
-    border: 1px solid black;
-    
-    
-}
-#button{
-    width: 20%; /* Same width as #img */
-    height: 100%; /* Same height as #img */
-    margin: 0 auto; /* Center the button div */
+#button {
+    width: 100px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: end;
-    text-align: center;
-    height: 400px;
-}
-
-#button:hover {
-    background-color: lightgray;
+    align-items: center;
+    position: absolute;
+    bottom: 100px; 
+    left: 50%;
+    transform: translateX(-50%); 
 }
 
 #username {
-    font-size: 50px;
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+#points {
+    margin: 10px 0;
 }
 
 .streak {
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     background-image: url("../images/streak.png");
     background-size: cover;
     width: 64px;
@@ -65,18 +76,60 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10; /* Ensure navbar stays on top */
 }
 
 .navbaritem {
     width: 25%;
-    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
 }
 
 .navbaritem input {
     width: 48px;
     height: 48px;
-    float: none;
-    margin-left: 25%;
-    margin-top: 10%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #username {
+        font-size: 2rem;
+    }
+    
+    #img {
+        max-width: 80px;
+    }
+    
+    #button {
+        bottom: 80px; /* Adjust position for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #username {
+        font-size: 1.5rem;
+    }
+    
+    #button {
+        bottom: 60px; /* Adjust position for small screens */
+        width: 80px;
+    }
+    
+    #img {
+        max-width: 60px;
+    }
+    
+    .navbar {
+        height: 60px;
+    }
+    
+    .navbaritem input {
+        width: 36px;
+        height: 36px;
+    }
 }
