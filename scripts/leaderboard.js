@@ -15,6 +15,8 @@ async function getUserInfo() {
   const user = auth.currentUser;
   console.log(auth);
 
+  console.log(user)
+
   if (!user) {
     console.log("User not authenticated");
     return null;
@@ -104,10 +106,20 @@ async function logAllUsers() {
 }
 
 // Call the function
+
+
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const userInfo = await getUserInfo();
+  
+      logAllUsers()
+ 
+    }
+  });
   
 
 //Check if sort order is changed
-// var e = document.getElementById("sortlist");
-// e.addEventListener("change", function() {
-//     logAllUsers();
-// });
+var e = document.getElementById("sortlist");
+e.addEventListener("change", function() {
+    logAllUsers();
+});
