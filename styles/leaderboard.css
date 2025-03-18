@@ -62,18 +62,20 @@
 	
 	table {
 		margin: auto;
-		font-size: ;
+		border-style: solid;
+		border-color: black;
+		border-radius: 8px;
+		background-color: black;
 	}
 	
 	tr {
 		padding: 10px;
 		margin: 10px;
-		background-color: ;
+		background-color: white;
 		font-size: 18px;
 }
 
 	td {
-		margin: 10px;
 		padding: 16px 20px;
 		background-color: ;
 	}
