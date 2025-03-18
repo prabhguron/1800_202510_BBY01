@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>TossRite</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-			<link rel="stylesheet" href="/styles/template.css"/>
-			<!-- Add additional style here -->
-			<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-			<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    </head>
-	<body>
-		<div class="parent">
-			<div class="content">
-				<div class="hero">
-					<h1 class="luckiest-guy-regular">Page Header goes here</h1> 
-				</div>
-				<!-- Page content starts here -->
+  <head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
 
+  <body>
+    <nav id="nav">
+      <h1 id="title">Toss Rite</h1>  
+      <div class="navIcons">
+        <ul class="navList">
+          <a href="/landingPage.html"><li>Home</li></a>
+          <a href="/Leaderboard.html"><li>Leaderboard</li></a>
+          <a href="/About.html"><li>About Us</li></a>
+        </ul>
+      </div>
+    </nav>
 
+    <!-- Welcome Banner -->
+    <section class="welcome-banner">
+      <h2>Welcome to Toss Rite</h2>
+      <p>Master the art of perfect waste disposal and make a positive impact on our environment. Join our community of eco-conscious individuals today!</p>
+      <a class="cta-button" href="Login.html">Get Started</a>
+    </section>
 
-				<!-- Page content ends here -->
-			</div>
-			<footer class="footer">
-				<div class="icon-container">
-				<a href="main.html"><span class="material-symbols-outlined">home</span></a>
-				<a href="Plantlevel.html"><span class="material-symbols-outlined">psychiatry</span></a>
-				<a href="leaderboard.html"><span class="material-symbols-outlined">leaderboard</span></a>
-				<a href="community.html"><span class="material-symbols-outlined">forum</span></a>
-				</div>
-			</footer>	
-		</div>
-	</body>
-</html>
+    <section class="cta-section">
+      <div class="cta-container">
+        <div class="cta-card">
+          <h3>Track Your Impact</h3>
+          <p>Monitor your waste disposal habits and see your environmental impact in real-time.</p>
+        </div>
+        <div class="cta-card">
+          <h3>Climb The leaderboards</h3>
+          <p>Beat your friends and be the greenest person you know</p>
+        </div>
+        <div class="cta-card">
+          <h3>Learn More</h3>
+          <p>Access educational resources and tips to improve your waste management skills.</p>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="./scripts/script.js"></script>
+  </html>
