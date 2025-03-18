@@ -7,6 +7,12 @@ body {
 	background-color: #61E786;
 }
 
+.luckiest-guy-regular {
+	font-family: "Luckiest Guy", cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+
 .parent {
   display: grid;
   height: 100vh;
@@ -48,6 +54,11 @@ body .material-symbols-outlined {
   gap: 30px;
 }
 
+.icon-container img {
+  width: 24px;
+  height: 24px;
+}
+
 a {
 		color: black;
 }
@@ -58,7 +69,8 @@ h1 {
 }
 
 h2 {
-  font-size: x-large;
+  font-size: 28px;
+  text-align: center;
 }
 
 .content {
