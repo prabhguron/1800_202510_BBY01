@@ -7,10 +7,11 @@ import {
   onSnapshot,
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
-// Functi             `                                                                                       on to get the user info from the database
+// Function to get the user info from the database
 async function getUserInfo() {
   // Check if user is authenticated
   const user = auth.currentUser;
+  console.log(auth);
 
   if (!user) {
     console.log("User not authenticated");
