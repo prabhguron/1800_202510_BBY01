@@ -24,16 +24,22 @@ async function logAllUsers() {
       })
 
     });
+
+    lb.sort(({p:a}, {p:b}) => b-a);
+
+    let str = "<table><tr><th>#</th><th>Name</th><th>Points</th></tr>";
+    for (let i=0; i < lb.length; i++) {
+        str += "<tr>";
+        str += "<td>" + (i+1) + "</td>";
+        str += "<td>" + lb[i].n + "</td>";
+        str += "<td>" + lb[i].p + "</td>";
+        str += "<tr>";
+    }
+    str += "</table>";
+    document.getElementById("list").innerHTML = str;
+
   } catch (error) {
     console.error("Error getting users:", error);
-  }
-
-  lb.sort(({p:a}, {p:b}) => b-a);
-
-  let str = "<table><tr><th>#</th><th>Name</th><th>Points</th></tr>";
-  for (let i=0; i < length(lb); i++) {
-      str += "<tr>";
-      str += "<td>";
   }
 
 }
