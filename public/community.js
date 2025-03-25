@@ -47,12 +47,17 @@ async function createPost() {
   try {
     const userInfo = await getUserInfo();
     const message = document.getElementById('message').value;
+    let date = new Date();
 
     await addDoc(collection(db, "posts"), {
         username : userInfo.username,
         text : message,
-        date : new Date().toISOString(),
+        year : date.getFullYear(),
+        month : date.getMonth()+1,
+        day : date.getDate(),
+        time : date.getTime(),
     });
+    document.getElementById('message').value = "";
   } catch(error) {
     console.error("Error creating post:", error);
   }
@@ -68,24 +73,32 @@ async function logAllPosts() {
     querySnapshot.forEach((doc) => {
       let post = doc.data();
       let name = post.username;
-      let date = post.date;
       let text = post.text;
+      let year = post.year;
+      let month = post.month;
+      let day = post.day;
+      let time = post.time;
 
       posts.push({
 
           n : name,
-          d : date,
           t : text,
+          yr : year,
+          mn : month,
+          dy : day,
+          tm : time,
 
       })
 
     });
 
+    posts.sort(({tm:a}, {tm:b}) => b-a);
+
     let str = "";
     for (let i=0; i < posts.length; i++) {
         str += "<div class=" + "post-container>" + "<table><tr>";
         str += "<td>" + posts[i].n + "</td>";
-        str += "<td>" + posts[i].d + "</td>";
+        str += "<td>" + posts[i].yr + "/" + posts[i].mn + "/" + posts[i].dy + "</td>";
         str += "</tr></table><br>";
         str += "<p>" + posts[i].t + "</p></div>";
     }
