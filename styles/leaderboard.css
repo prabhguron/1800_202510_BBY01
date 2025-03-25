@@ -5,11 +5,11 @@
 		padding: 0;
 	}
 	
-.luckiest-guy-regular {
+/* .luckiest-guy-regular {
 	font-family: "Luckiest Guy", cursive;
 	font-weight: 400;
 	font-style: normal;
-}
+} */
 	
 	/* .navbar {
     width: 100%;
@@ -78,11 +78,16 @@
 	td {
 		padding: 16px 20px;
 		background-color: ;
-	}
+}
 
-#highlight {
+	#highlight {
 	background-color: yellow;
 }
+
+	#list {
+		overflow-y: scroll;
+		height: 550px;
+	}
 	
 
 
