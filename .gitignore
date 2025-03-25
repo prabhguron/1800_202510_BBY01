@@ -2,3 +2,6 @@
 *.logs
 node_modules/
 .vscode/
+package-lock.json
+
+//so when we run our code please npm install first

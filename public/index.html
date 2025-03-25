@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TossRite</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/styles/template.css"/>
+        <link rel="stylesheet" href="/styles/main2.css"/>
+        <style>
+            #image-preview {
+                max-width: 100%;
+                max-height: 300px;
+                margin: 20px auto;
+                display: none;
+            }
+            #result-container {
+                margin-top: 20px;
+                padding: 15px;
+                border-radius: 4px;
+                display: none;
+                text-align: center;
+            }
+            .loading {
+                text-align: center;
+                display: none;
+            }
+            .spinner {
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #3498db;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 2s linear infinite;
+                margin: 0 auto;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .result-container {
+                margin-top: 15px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .result-container.compostable { background-color: #d4edda; color: #155724; }
+            .result-container.recyclable { background-color: #d1ecf1; color: #0c5460; }
+            .result-container.garbage { background-color: #f8d7da; color: #721c24; }
+            .result-container.unknown { background-color: #fff3cd; color: #856404; }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="parent">
+            <div class="content">
+                <div class="hero">
+                    <h1 class="luckiest-guy-regular">&#127795;Toss Rite&#127795;</h1>
+                    <h2 id="username">Welcome</h2>
+                    <h2 id="points">Points</h2>
+                    
+                    <div id="waste-categorization">
+                        <input type="file" id="file-input" accept="image/*" style="display: none;">
+                        <div id="button" class="material-symbols-outlined">
+                            <span id="upload-btn">add_a_photo</span>
+                        </div>
+                        
+                        <img id="image-preview" alt="Preview">
+                        
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Analyzing image...</p>
+                        </div>
+                        
+                        <div id="result-container" class="result-container">
+                            <h3 id="result-title"></h3>
+                            <p id="result-explanation"></p>
+                            <p id="result-tips"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="icon-container">
+                    <a href="index.html"><img src=""></a>
+                    <a href="/html/Plantlevel.html"><span class="material-symbols-outlined">psychiatry</span></a>
+                    <a href="/html/leaderboard.html"><span class="material-symbols-outlined">leaderboard</span></a>
+                    <a href="/html/community.html"><span class="material-symbols-outlined">forum</span></a>
+                </div>
+            </footer>	
+        </div>
+    </body>
+    <script src="client.js"></script>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "1800_202510_bby01",
+  "version": "1.0.0",
+  "description": "An application that categorizes waste as compostable, recyclable, or garbage",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.1.3",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
