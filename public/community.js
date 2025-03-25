@@ -133,6 +133,6 @@ e.addEventListener("click", function() {
   
 });
 
-onSnapshot(collection(db, "posts")) {
+onSnapshot(collection(db, "posts")), function() {
   logAllPosts();
 }
