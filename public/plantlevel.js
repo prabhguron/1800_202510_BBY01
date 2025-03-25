@@ -11,10 +11,10 @@ import {
 
 // Image assignment based on points
 const pointImages = [
-    { min: 0, max: 9, image: "bronze.png" },
-    { min: 10, max: 19, image: "silver.png" },
-    { min: 20, max: 29, image: "gold.png" },
-    { min: 30, max: Infinity, image: "diamond.png" },
+    { min: 0, max: 9, image: "../images/level1.jpg" },
+    { min: 10, max: 19, image: "../images/level2.jpg" },
+    { min: 20, max: 29, image: "../images/level3.jpg" },
+    { min: 30, max: Infinity, image: "../images/level4.jpg" },
   ];
   
   // Function to determine the correct image
