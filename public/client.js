@@ -1,5 +1,7 @@
-// client.js - Frontend JavaScript
+
+
 document.addEventListener('DOMContentLoaded', function() {
+
   // Get DOM elements
   const fileInput = document.getElementById('file-input');
   const uploadBtn = document.getElementById('upload-btn');
@@ -10,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const resultTips = document.getElementById('result-tips');
   const loading = document.querySelector('.loading');
   
+  
+
+
+
+
   // Add event listeners
   uploadBtn.addEventListener('click', function() {
     fileInput.click();
@@ -88,6 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
       resultTips.textContent = '';
       return;
     }
+
+
+
     
     // Set class based on category
     resultContainer.className = `result-container ${result.category}`;
