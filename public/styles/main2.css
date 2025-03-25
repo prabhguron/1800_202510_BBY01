@@ -45,7 +45,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    border: 1px solid black;
     padding: 20px 10px;
     box-sizing: border-box;
     min-height: calc(100vh - 95px); /* Make hero take up full height minus navbar and some spacing */
@@ -67,9 +66,10 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 100px; 
+    top: 700px;
     left: 50%;
     transform: translateX(-50%); 
+    
 }
 
 #username {
@@ -165,4 +165,7 @@ body {
         width: 36px;
         height: 36px;
     }
+}
+#result-container{
+    
 }
