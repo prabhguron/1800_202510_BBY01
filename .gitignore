@@ -3,5 +3,5 @@
 node_modules/
 .vscode/
 package-lock.json
-
+.env
 //so when we run our code please npm install first
