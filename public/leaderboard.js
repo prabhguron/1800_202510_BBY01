@@ -1,4 +1,4 @@
-import { auth, db } from "./firebase-config.js";
+import { auth, db } from "/firebase-config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 import {
   collection,
@@ -50,7 +50,7 @@ async function displayUsername() {
     console.log("Username not available");
   }
 }
-
+console.log('working')
 async function logAllUsers() {
   try {
     const userInfo = await getUserInfo();
