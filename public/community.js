@@ -5,134 +5,107 @@ import {
   getDocs,
   doc,
   getDoc,
-  setDoc,
-  addDoc,
+  query,
+  orderBy,
   onSnapshot,
+  addDoc,
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 // Function to get the user info from the database
 async function getUserInfo() {
-  // Check if user is authenticated
   const user = auth.currentUser;
-  console.log(auth);
-
-  console.log(user)
-
+  
   if (!user) {
     console.log("User not authenticated");
     return null;
   }
 
   try {
-    // Get the user document from Firestore
     const userDocRef = doc(db, "users", user.uid);
-
-
     const userDoc = await getDoc(userDocRef);
 
-    if (userDoc.exists()) {
-      // Return user info
-      return userDoc.data() || null;
-    } else {
-      console.log("User document not found");
-      return null;
-    }
+    return userDoc.exists() ? userDoc.data() : null;
   } catch (error) {
     console.error("Error getting user info:", error);
     return null;
   }
 }
 
+// Function to create a post
 async function createPost() {
   try {
     const userInfo = await getUserInfo();
-    const message = document.getElementById('message').value;
-    let date = new Date();
+    const messageInput = document.getElementById('message');
+    const message = messageInput.value.replace(/[<>]/g, '').trim();
 
+    if (!message) return; // Prevent empty posts
+
+    const date = new Date();
     await addDoc(collection(db, "posts"), {
-        username : userInfo.username,
-        text : message.replace(/</,"").replace(/>/,""),
-        year : date.getFullYear(),
-        month : date.getMonth()+1,
-        day : date.getDate(),
-        time : date.getTime(),
+      username: userInfo.username,
+      text: message,
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDate(),
+      time: date.getTime(),
     });
-    document.getElementById('message').value = "";
+
+    messageInput.value = ""; // Clear input after posting
   } catch(error) {
     console.error("Error creating post:", error);
   }
 }
 
-async function logAllPosts() {
-  try {
-    const userInfo = await getUserInfo();
-    const postCollection = collection(db, "posts");
-    const querySnapshot = await getDocs(postCollection);
-    let posts = [];
-    
-    querySnapshot.forEach((doc) => {
-      let post = doc.data();
-      let name = post.username;
-      let text = post.text;
-      let year = post.year;
-      let month = post.month;
-      let day = post.day;
-      let time = post.time;
+// Function to render posts
+function renderPosts(posts) {
+  const postsContainer = document.getElementById("all-posts");
+  
+  // Sort posts by time in descending order
+  posts.sort((a, b) => b.time - a.time);
 
-      posts.push({
+  const postsHTML = posts.map(post => `
+    <div class="post-container">
+      <table>
+        <tr>
+          <td>${post.username}</td>
+          <td id="float-right">${post.year}/${post.month}/${post.day}</td>
+        </tr>
+      </table>
+      <br>
+      <p>${post.text}</p>
+    </div>
+  `).join('');
 
-          n : name,
-          t : text,
-          yr : year,
-          mn : month,
-          dy : day,
-          tm : time,
-
-      })
-
-    });
-
-    posts.sort(({tm:a}, {tm:b}) => b-a);
-
-    let str = "";
-    for (let i=0; i < posts.length; i++) {
-        str += "<div class=" + "post-container>" + "<table><tr>";
-        str += "<td>" + posts[i].n + "</td>";
-        str += "<td id=" + "float-right>" + posts[i].yr + "/" + posts[i].mn + "/" + posts[i].dy + "</td>";
-        str += "</tr></table><br>";
-        str += "<p>" + posts[i].t + "</p></div>";
-    }
-    document.getElementById("all-posts").innerHTML = str;
-
-  } catch (error) {
-    console.error("Error getting posts:", error);
-  }
-
+  postsContainer.innerHTML = postsHTML;
 }
 
-// Call the function
+// Real-time listener for posts
+function setupPostsListener() {
+  const postsQuery = query(collection(db, "posts"), orderBy('time', 'desc'));
+  
+  onSnapshot(postsQuery, (snapshot) => {
+    const posts = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    renderPosts(posts);
+  });
+}
 
-
+// Authentication state change listener
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     const userInfo = await getUserInfo();
-
-    logAllPosts();
-
+    if (userInfo) {
+      setupPostsListener(); // Start listening for real-time updates
+    }
   }
 });
-  
 
-//Check if sort order is changed
-var e = document.getElementById("send-btn");
-e.addEventListener("click", function() {
-    if (document.getElementById('message').value != "") {
-      createPost();
-      logAllPosts();
-    }
-  
+// Event listener for send button
+document.getElementById("send-btn").addEventListener("click", () => {
+  const messageInput = document.getElementById('message');
+  if (messageInput.value.trim() !== "") {
+    createPost();
+  }
 });
-
-onSnapshot(collection(db, "posts")), function() {
-  logAllPosts();
-}
