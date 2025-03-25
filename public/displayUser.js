@@ -71,7 +71,6 @@ async function addPoints(){
     points: userPoints + 1
   });
 
-  // Update local display
   document.getElementById("points").textContent = ` ${userPoints + 1} `  
   console.log(userPoints + 1)  
 }
