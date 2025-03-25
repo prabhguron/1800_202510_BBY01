@@ -51,7 +51,7 @@ async function createPost() {
 
     await addDoc(collection(db, "posts"), {
         username : userInfo.username,
-        text : message.replace(/</,""),
+        text : message.replace(/</,"").replace(/>/,""),
         year : date.getFullYear(),
         month : date.getMonth()+1,
         day : date.getDate(),
