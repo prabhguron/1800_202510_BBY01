@@ -31,7 +31,7 @@ onAuthStateChanged(auth, async (user) => {
 
       if (userDoc.exists()) {
         // Return user info
-       return (userDoc.data().username || null) 
+       return (userDoc.data()) 
       } else {
         console.log("User document not found");
         return null;
@@ -57,10 +57,13 @@ onAuthStateChanged(auth, async (user) => {
   async function logAllUsers() {
     try {
       const userInfo = await getUserInfo();
+      const userName = userInfo.username;
+      const userPoints = userInfo.points;
+
       const usersCollection = collection(db, "users");
 
-      
-document.getElementById("username").textContent += userInfo     
+document.getElementById("username").textContent += userName   
+document.getElementById("points").textContent +=  ` ${userPoints} `
       //here you will add the each user make your own html then use
       //innerhtml to add it to leaderboard.html
     }
