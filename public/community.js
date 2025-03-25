@@ -98,7 +98,7 @@ async function logAllPosts() {
     for (let i=0; i < posts.length; i++) {
         str += "<div class=" + "post-container>" + "<table><tr>";
         str += "<td>" + posts[i].n + "</td>";
-        str += "<td>" + posts[i].yr + "/" + posts[i].mn + "/" + posts[i].dy + "</td>";
+        str += "<td id=" + "float-right>" + posts[i].yr + "/" + posts[i].mn + "/" + posts[i].dy + "</td>";
         str += "</tr></table><br>";
         str += "<p>" + posts[i].t + "</p></div>";
     }
@@ -113,14 +113,14 @@ async function logAllPosts() {
 // Call the function
 
 
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      const userInfo = await getUserInfo();
-  
-      logAllPosts();
- 
-    }
-  });
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const userInfo = await getUserInfo();
+
+    logAllPosts();
+
+  }
+});
   
 
 //Check if sort order is changed
@@ -132,3 +132,7 @@ e.addEventListener("click", function() {
     }
   
 });
+
+onSnapshot(collection(db, "posts")) {
+  logAllPosts();
+}

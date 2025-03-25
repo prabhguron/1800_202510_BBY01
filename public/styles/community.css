@@ -8,6 +8,14 @@
     background-color: #f9f9f9;
 }
 
+#float-right {
+    float: right;
+}
+
+table {
+    width: 100%;
+}
+
 .chat-messages {
     height: 32px;
     overflow-y: auto;
