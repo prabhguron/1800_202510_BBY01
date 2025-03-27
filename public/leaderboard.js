@@ -15,7 +15,7 @@ async function getUserInfo() {
   const user = auth.currentUser;
   console.log(auth);
 
-  console.log(user)
+  console.log(user);
 
   if (!user) {
     console.log("User not authenticated");
@@ -25,7 +25,6 @@ async function getUserInfo() {
   try {
     // Get the user document from Firestore
     const userDocRef = doc(db, "users", user.uid);
-
 
     const userDoc = await getDoc(userDocRef);
 
@@ -50,14 +49,14 @@ async function displayUsername() {
     console.log("Username not available");
   }
 }
-console.log('working')
+console.log("working");
 async function logAllUsers() {
   try {
     const userInfo = await getUserInfo();
     const usersCollection = collection(db, "users");
     const querySnapshot = await getDocs(usersCollection);
     let lb = [];
-    
+
     console.log("All users in collection:");
     //here you will add the each user make your own html then use
     //innerhtml to add it to leaderboard.html
@@ -68,58 +67,50 @@ async function logAllUsers() {
       let id = "";
 
       if (name == userInfo.username) {
-          id = "highlight";
+        id = "highlight";
       }
 
       lb.push({
-
-          n : name,
-          p : points,
-          ID : id,
-
-      })
-
+        n: name,
+        p: points,
+        ID: id,
+      });
     });
 
-    lb.sort(({p:a}, {p:b}) => b-a);
+    lb.sort(({ p: a }, { p: b }) => b - a);
     console.log(lb[0]);
 
     if (document.getElementById("sortlist").value == "bottom") {
-        lb.reverse();
+      lb.reverse();
     }
 
     let str = "<table><tr><th>#</th><th>Name</th><th>Points</th></tr>";
-    for (let i=0; i < lb.length; i++) {
-        str += "<tr" + " id=" + lb[i].ID + ">";
-        str += "<td>" + (i+1) + "</td>";
-        str += "<td>" + lb[i].n + "</td>";
-        str += "<td>" + lb[i].p + "</td>";
-        str += "</tr>";
+    for (let i = 0; i < lb.length; i++) {
+      str += "<tr" + " id=" + lb[i].ID + ">";
+      str += "<td>" + (i + 1) + "</td>";
+      str += "<td>" + lb[i].n + "</td>";
+      str += "<td>" + lb[i].p + "</td>";
+      str += "</tr>";
     }
     str += "</table>";
     document.getElementById("list").innerHTML = str;
-
   } catch (error) {
     console.error("Error getting users:", error);
   }
-
 }
 
 // Call the function
 
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const userInfo = await getUserInfo();
 
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      const userInfo = await getUserInfo();
-  
-      logAllUsers()
- 
-    }
-  });
-  
+    logAllUsers();
+  }
+});
 
 //Check if sort order is changed
 var e = document.getElementById("sortlist");
-e.addEventListener("change", function() {
-    logAllUsers();
+e.addEventListener("change", function () {
+  logAllUsers();
 });

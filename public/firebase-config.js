@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "tossriteloginsignup",
   storageBucket: "tossriteloginsignup.firebasestorage.app",
   messagingSenderId: "278925744719",
-  appId: "1:278925744719:web:2ad367945846692b7aa83a"
+  appId: "1:278925744719:web:2ad367945846692b7aa83a",
 };
 
 // Initialize Firebase

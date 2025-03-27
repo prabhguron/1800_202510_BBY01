@@ -14,7 +14,7 @@ import {
 // Function to get the user info from the database
 async function getUserInfo() {
   const user = auth.currentUser;
-  
+
   if (!user) {
     console.log("User not authenticated");
     return null;
@@ -35,8 +35,8 @@ async function getUserInfo() {
 async function createPost() {
   try {
     const userInfo = await getUserInfo();
-    const messageInput = document.getElementById('message');
-    const message = messageInput.value.replace(/[<>]/g, '').trim();
+    const messageInput = document.getElementById("message");
+    const message = messageInput.value.replace(/[<>]/g, "").trim();
 
     if (!message) return; // Prevent empty posts
 
@@ -51,7 +51,7 @@ async function createPost() {
     });
 
     messageInput.value = ""; // Clear input after posting
-  } catch(error) {
+  } catch (error) {
     console.error("Error creating post:", error);
   }
 }
@@ -59,11 +59,13 @@ async function createPost() {
 // Function to render posts
 function renderPosts(posts) {
   const postsContainer = document.getElementById("all-posts");
-  
+
   // Sort posts by time in descending order
   posts.sort((a, b) => b.time - a.time);
 
-  const postsHTML = posts.map(post => `
+  const postsHTML = posts
+    .map(
+      (post) => `
     <div class="post-container">
       <table>
         <tr>
@@ -74,19 +76,21 @@ function renderPosts(posts) {
       <br>
       <p>${post.text}</p>
     </div>
-  `).join('');
+  `
+    )
+    .join("");
 
   postsContainer.innerHTML = postsHTML;
 }
 
 // Real-time listener for posts
 function setupPostsListener() {
-  const postsQuery = query(collection(db, "posts"), orderBy('time', 'desc'));
-  
+  const postsQuery = query(collection(db, "posts"), orderBy("time", "desc"));
+
   onSnapshot(postsQuery, (snapshot) => {
-    const posts = snapshot.docs.map(doc => ({
+    const posts = snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...doc.data()
+      ...doc.data(),
     }));
     renderPosts(posts);
   });
@@ -104,7 +108,7 @@ onAuthStateChanged(auth, async (user) => {
 
 // Event listener for send button
 document.getElementById("send-btn").addEventListener("click", () => {
-  const messageInput = document.getElementById('message');
+  const messageInput = document.getElementById("message");
   if (messageInput.value.trim() !== "") {
     createPost();
   }
