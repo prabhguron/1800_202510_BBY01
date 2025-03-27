@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Gowun+Dodum&display=swap');
+
+/* Global Reset and Base Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #61E786; /* Light green background */
+    
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 20px;
+}
+
+.dynapuff {
+    font-family: 'DynaPuff', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+#username, #points {
+    font-family: 'Roboto', sans-serif;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Waste Categorization Section */
+#waste-categorization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+}
+
+#upload-btn {
+    font-size: 48px;
+    color: #333;
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.result-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result-container.garbage {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Loading Spinner */
+.loading {
+    text-align: center;
+    display: none;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+.footer {
+    background-color: white;
+    padding: 20px;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icon-container a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.material-symbols-outlined {
+    font-size: 24px;
+}
