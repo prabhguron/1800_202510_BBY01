@@ -96,7 +96,7 @@ function handleAuth(event) {
         
         // Redirect after short delay
         setTimeout(() => {
-          window.location.href = '/index.html';
+          window.location.href = '/index1.html';
         }, 1500);
       })
       .catch((error) => {
@@ -121,7 +121,7 @@ function handleAuth(event) {
         
         // Redirect after short delay
         setTimeout(() => {
-          window.location.href = '/index.html';
+          window.location.href = '/index1.html';
  
         }, 1500);
       })

@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const imagePreview = document.getElementById('image-preview');
   const resultContainer = document.getElementById('result-container');
   const resultTitle = document.getElementById('result-title');
-  const resultExplanation = document.getElementById('result-explanation');
-  const resultTips = document.getElementById('result-tips');
   const loading = document.querySelector('.loading');
   
   
@@ -87,12 +85,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Display the result
   function displayResult(result) {
     resultContainer.style.display = 'block';
+    resultContainer.style.border = '1px solid black';
+resultTitle.style.color = "darkblackandlight";
+
+
     
     if (result.category === 'unknown') {
       resultContainer.className = 'result-container unknown';
       resultTitle.textContent = 'Could not determine category';
-      resultExplanation.textContent = result.error || 'Could not analyze the image';
-      resultTips.textContent = '';
       return;
     }
 
@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Display result
     const confidencePercent = Math.round(result.confidence * 100);
     resultTitle.textContent = `This item is ${result.category.toUpperCase()} (${confidencePercent}% confidence)`;
-    resultExplanation.textContent = result.explanation;
-    resultTips.textContent = result.tips || '';
+    resultContainer.className = `result-container ${result.category}`;
+
   }
   
   // Display error message
@@ -114,7 +114,5 @@ document.addEventListener('DOMContentLoaded', function() {
     resultContainer.style.display = 'block';
     resultContainer.className = 'result-container unknown';
     resultTitle.textContent = 'Error';
-    resultExplanation.textContent = 'Failed to analyze the image. Please try again.';
-    resultTips.textContent = '';
   }
 });

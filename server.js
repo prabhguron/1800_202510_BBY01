@@ -85,8 +85,6 @@ async function categorizeWaste(imagePath) {
       Response format:
       {
         "category": "compostable|recyclable|garbage",
-        "confidence": 0.0-1.0,
-        "explanation": "Why this item belongs in this category",
         "tips": "Disposal recommendations"
       }
     `;
