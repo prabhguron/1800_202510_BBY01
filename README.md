@@ -15,7 +15,7 @@ Developed for the [Course Name] course, applying User-Centred Design practices, 
 ## Features
 
 Example:
-- Real-time weather updates for any city.
+- Real-time information about your items
 - Responsive design for desktop and mobile.
 - Displays temperature, humidity, and weather conditions.
 
@@ -27,16 +27,18 @@ Example:
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Firebase for hosting
 - **Database**: Firestore
-- **API**: OpenWeatherMap API
+- **API**: Gemini API
 
 ---
 
 ## Usage
 
 Example:
-1. Open your browser and visit `http://localhost:3000`.
-2. Enter the name of the city in the search bar and press enter.
-3. View the weather information displayed on the screen.
+Clone repo 
+update your env file with your own api key or if carly ask prabh
+Npm install 
+npm start 
+open local host
 
 ---
 
