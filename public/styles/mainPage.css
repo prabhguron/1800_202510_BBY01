@@ -130,3 +130,43 @@ body, html {
 .material-symbols-outlined {
     font-size: 24px;
 }
+.TossCans{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* Base styles for the images to ensure smooth transitions */
+.tossCanImg {
+    width: 20%;
+    height: auto;
+    border-radius: 20%;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Golden spotlight effect when the show class is applied */
+.tossCanImg.show {
+    border: 3px solid gold;
+    box-shadow: 0 0 15px #FDB931, 0 0 30px rgba(253, 185, 49, 0.6);
+    transform: scale(1.05);
+    z-index: 2; /* Bring selected image to front */
+    position: relative;
+}
+
+.tossCanImg.show::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20%;
+    pointer-events: none;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    z-index: 1;
+}
