@@ -53,14 +53,51 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("points").textContent = `Points: ${userPoints + point} `;
   }
 
+  const wasteFacts = [
+    "Recycling one aluminum can saves enough energy to power a TV for three hours." ,
+    "Food waste in landfills generates methane, a greenhouse gas 25 times more potent than carbon dioxide.",
+    "Composting organic waste can reduce landfill waste by up to 30%.",
+    "Plastic takes up to 1,000 years to decompose in landfills.",
+    "Glass is 100% recyclable and can be recycled endlessly without losing quality.",
+    "Around 91% of plastic worldwide is not recycled.",
+    "Every ton of recycled paper saves 17 trees and 7,000 gallons of water.",
+    "Electronic waste makes up only 2% of trash in landfills but accounts for 70% of toxic waste.",
+    "Recycling a single plastic bottle can save enough energy to power a light bulb for three hours.",
+    "If food waste were a country, it would be the third-largest emitter of greenhouse gases in the world."
+  ];
+  
+  function changeText() {
+console.log("working")
+    var timer = 0;
+  
+    // Use let instead of var
+    for (let i = 0; i < wasteFacts.length; i++) {
+  
+      setTimeout(() => { 
+        document.getElementById('stats').innerHTML = wasteFacts[i]  
+      }, timer);
+  
+      timer = timer + 5000;
+    }
+  
+  }
+  
+
+
+
+
+
+
   async function showTotal() {
     const totalDocRef = doc(db, "totalpoints", "totalpoints");
 
     const totalDoc = await getDoc(totalDocRef);
 
     const totl = totalDoc.data().total;
-
-    document.getElementById("stats").innerHTML = `Did you know? 2.2 billion metric tons of waste is produced annually with 38% of that waste being mismanaged, polluting ecosystems.<br><br>TossRite users have helped save <h1>${totl}</h1> pieces of garbage from misuse.`;
+    document.getElementById("stats1").innerHTML =  `TossRite users have helped save ${totl} pieces of garbage from misuse.`;
+;
+    changeText();
+   
   }
   showTotal();
 
