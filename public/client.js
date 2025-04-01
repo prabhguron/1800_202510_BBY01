@@ -1,4 +1,6 @@
-
+import { auth, db } from "/firebase-config.js";
+import { doc, getDoc, updateDoc, onSnapshot, } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -13,9 +15,58 @@ document.addEventListener('DOMContentLoaded', function() {
   const loading = document.querySelector('.loading');
   
   
+  async function getUserInfo() {
+    const user = auth.currentUser;
+    try {
+      const userDocRef = doc(db, "users", user.uid);
+      const userDoc = await getDoc(userDocRef);
+      if (userDoc.exists()) {
+        return userDoc.data();
+      } else {
+        console.log("User document not found");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error getting user info:", error);
+      return null;
+    }
+  }
 
+  async function addPoints(point) {
+    let userInfo = await getUserInfo();
+    let userName = userInfo.username;
+    let userPoints = userInfo.points;
+  
+    // Update points in Firestore
+    const userDocRef = doc(db, "users", auth.currentUser.uid);
+    await updateDoc(userDocRef, {
+      points: userPoints + point,
+    });
 
+    const totalDocRef = doc(db, "totalpoints", "totalpoints");
+    const totalDoc = await getDoc(totalDocRef);
+    const totl = totalDoc.data().total;
+    await updateDoc(totalDocRef, {
+        total: totl+1
+    });
+  
+    document.getElementById("points").textContent = `Points: ${userPoints + point} `;
+  }
 
+  async function showTotal() {
+    const totalDocRef = doc(db, "totalpoints", "totalpoints");
+
+    const totalDoc = await getDoc(totalDocRef);
+
+    const totl = totalDoc.data().total;
+
+    document.getElementById("stats").innerHTML = `Did you know? 2.2 billion metric tons of waste is produced annually with 38% of that waste being mismanaged, polluting ecosystems.<br><br>TossRite users have helped save <h1>${totl}</h1> pieces of garbage from misuse.`;
+  }
+  showTotal();
+
+  onSnapshot(doc(db, "totalpoints", "totalpoints"), (snapshot) => {
+      showTotal();
+  });
 
   // Add event listeners
   uploadBtn.addEventListener('click', function() {
@@ -114,6 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
     resultExplanation.textContent = result.explanation;
     resultTips.textContent = result.tips || '';
     document.getElementById(`${result.category }`).classList.add("show")
+
+    addPoints(1);
 
   }
   
