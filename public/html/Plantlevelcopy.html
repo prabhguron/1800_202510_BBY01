@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-System Drawing</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #increaseGrowthButton {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Button to increase growth -->
+    <button id="increaseGrowthButton">Increase Growth by 300%</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        const rules = {
+            X: [
+                { rule: "(F[+X][-X]FX)",  prob: 0.5  },
+                { rule: "(F[-X]FX)",      prob: 0.05 },
+                { rule: "(F[+X]FX)",      prob: 0.05 },
+                { rule: "(F[++X][-X]FX)", prob: 0.1  },
+                { rule: "(F[+X][--X]FX)", prob: 0.1  },
+                { rule: "(F[+X][-X]FXA)",  prob: 0.1  },
+                { rule: "(F[+X][-X]FXB)",  prob: 0.1  }
+            ],
+            F: [
+                { rule: "F(F)",  prob: 0.85 },
+                { rule: "F(FF)", prob: 0.05 },
+                { rule: "F",   prob: 0.1 },
+            ],
+            "(": "",
+            ")": ""
+        };
+
+        let len, ang;
+        let drawRules;
+
+        let word = "X";
+        let growthPercent = 10;  // Start growth at 1000% (10 times the base size)
+        const growthRate = 3.0;   // Increase by 300% per button click
+
+        const maxGeneration = 6;
+        let currGeneration = 0;
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            strokeWeight(2);
+
+            len = windowWidth / 100; // Line length scales with window size
+            ang = 25; // Fixed angle
+
+            drawRules = {
+                "A": (t) => {
+                    noStroke();
+                    fill("#E5CEDC");
+                    circle(0, 0, len * 2 * t);
+                },
+                "B": (t) => {
+                    noStroke();
+                    fill("#FCA17D");
+                    circle(0, 0, len * 2 * t);
+                },
+                "F": (t) => {
+                    stroke("#9ea93f");
+                    line(0, 0, 0, -len * t);
+                    translate(0, -len * t);
+                },
+                "+": (t) => {
+                    rotate(PI / 180 * -ang * t);
+                },
+                "-": (t) => {
+                    rotate(PI / 180 * ang * t);
+                },
+                "[": push,
+                "]": pop,
+            };
+
+            // Set up button click listener
+            const increaseGrowthButton = document.getElementById('increaseGrowthButton');
+            increaseGrowthButton.addEventListener('click', increaseGrowth);
+        }
+
+        function draw() {
+            background('#61E786');
+
+            // Only draw plant if growthPercent is above 0
+            if (growthPercent > 0) {
+                drawLsysLerp(width / 2, height * 0.9, word, growthPercent);
+            }
+        }
+
+        // Increase growth by 300% when the button is clicked
+        function increaseGrowth() {
+            growthPercent += growthRate;  // Increase by 300% per click
+            console.log('Growth increased:', growthPercent * 100 + '%');
+            nextGeneration(); // Generate the next step in the L-system
+        }
+
+        function nextGeneration() {
+            if (currGeneration === maxGeneration) {
+                currGeneration = 0;
+                word = "X";
+            }
+
+            word = generate(word);
+
+            currGeneration++;
+        }
+
+        function generate(word) {
+            let next = "";
+
+            for (let i = 0; i < word.length; i++) {
+                let c = word[i];
+                if (c in rules) {
+                    let rule = rules[c];
+                    if (Array.isArray(rule)) {
+                        next += chooseOne(rule);
+                    } else {
+                        next += rules[c];
+                    }
+                } else {
+                    next += c;
+                }
+            }
+
+            return next;
+        }
+
+        function chooseOne(ruleSet) {
+            let n = random();
+            let t = 0;
+            for (let i = 0; i < ruleSet.length; i++) {
+                t += ruleSet[i].prob;
+                if (t > n) {
+                    return ruleSet[i].rule;
+                }
+            }
+            return "";
+        }
+
+        function drawLsysLerp(x, y, state, t) {
+            t = constrain(t, 0, 1);
+
+            let lerpOn = false;
+
+            push();
+            translate(x, y);
+            for (let i = 0; i < state.length; i++) {
+                let c = state[i];
+
+                if (c === "(") {
+                    lerpOn = true;
+                    continue;
+                }
+
+                if (c === ")") {
+                    lerpOn = false;
+                    continue;
+                }
+
+                let lerpT = t;
+
+                if (!lerpOn) {
+                    lerpT = 1;
+                }
+
+                if (c in drawRules) {
+                    drawRules[c](lerpT);
+                }
+            }
+            pop();
+        }
+
+        // Resize the canvas whenever the window size changes
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+            len = windowWidth / 100; // Adjust line length when resizing
+        }
+    </script>
+</body>
+</html>
