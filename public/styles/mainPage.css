@@ -113,7 +113,7 @@ h1 {
 }
 
 /* Footer */
-.footer {
+/* .footer {
     background-color: white;
     padding: 20px;
     position: sticky;
@@ -135,7 +135,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 .material-symbols-outlined {
     font-size: 24px;
@@ -269,7 +269,7 @@ h1 {
   }
   
   /* Add cute footer hover effects */
-  .icon-container a {
+  /* .icon-container a {
     text-decoration: none;
     color: #333;
     display: flex;
@@ -281,7 +281,7 @@ h1 {
   .icon-container a:hover {
     transform: translateY(-5px);
     color: #2E8B57;
-  }
+  } */
   
   /* Add a subtle pulsing effect to titles */
   @keyframes subtle-pulse {
