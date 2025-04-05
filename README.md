@@ -39,7 +39,6 @@ npm start
 Copy7. Open your browser and navigate to `http://localhost:3000`
 
 ## Project Structure
-
 1800_202510_BBY01/
 ├── node_modules/
 ├── public/
