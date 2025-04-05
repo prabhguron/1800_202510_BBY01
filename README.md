@@ -39,38 +39,8 @@ npm start
 Copy7. Open your browser and navigate to `http://localhost:3000`
 
 ## Project Structure
-1800_202510_BBY01/
-├── node_modules/
-├── public/
-│   ├── html/
-│   ├── images/
-│   └── styles/
-│       ├── community.css
-│       ├── leaderboard.css
-│       ├── Login.css
-│       ├── main.css
-│       ├── main2.css
-│       ├── mainPage.css
-│       ├── plantlevel.css
-│       ├── style.css
-│       ├── template.css
-│       └── visualization.css
-├── client.js
-├── community.js
-├── displayUser.js
-├── firebase-config.js
-├── firebaseAPI.js
-├── index1.html
-├── leaderboard.js
-├── plantgrowth.js
-├── plantlevel.js
-├── .env
-├── .gitignore
-├── index.html
-├── package-lock.json
-├── package.json
-├── README.md
-└── server.js
+<pre> 1800_202510_BBY01/ ├── node_modules/ ├── public/ │ ├── html/ │ ├── images/ │ └── styles/ │ ├── community.css │ ├── leaderboard.css │ ├── Login.css │ ├── main.css │ ├── main2.css │ ├── mainPage.css │ ├── plantlevel.css │ ├── style.css │ ├── template.css │ └── visualization.css ├── client.js ├── community.js ├── displayUser.js ├── firebase-config.js ├── firebaseAPI.js ├── index1.html ├── leaderboard.js ├── plantgrowth.js ├── plantlevel.js ├── UserPage.html ├── .env ├── .gitignore ├── index.html ├── package-lock.json ├── package.json ├── README.md └── server.js </pre>
+
 
 
 ## Contributors
