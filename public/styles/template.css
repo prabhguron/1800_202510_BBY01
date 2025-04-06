@@ -6,6 +6,13 @@ html, body {
 body {
 	background-color: #61E786;
 }
+.hero h1 {
+	font-size: 2.5rem;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	color: #333;
+	margin: 0;
+	padding: 1rem 0;
+}
 
 .luckiest-guy-regular {
 	font-family: "Luckiest Guy", cursive;
