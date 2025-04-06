@@ -84,7 +84,7 @@ async function logAllUsers() {
       lb.reverse();
     }
 
-    let str = "<table><tr><th>#</th><th>Name</th><th>Points</th></tr>";
+    let str = '<div class="table-container"><table><thead><tr><th>#</th><th>Name</th><th>Points</th></tr></thead><tbody>';
     for (let i = 0; i < lb.length; i++) {
       str += "<tr" + " id=" + lb[i].ID + ">";
       str += "<td>" + (i + 1) + "</td>";
@@ -92,7 +92,7 @@ async function logAllUsers() {
       str += "<td>" + lb[i].p + "</td>";
       str += "</tr>";
     }
-    str += "</table>";
+    str += '</tbody></table></div>';
     document.getElementById("list").innerHTML = str;
   } catch (error) {
     console.error("Error getting users:", error);

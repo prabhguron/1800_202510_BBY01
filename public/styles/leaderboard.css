@@ -1,101 +1,129 @@
-/*@media only screen and (max-width : 700px){*/
-	body {
-		font-size: 12px;
-		margin: 0;
-		padding: 0;
-	}
-	
-/* .luckiest-guy-regular {
-	font-family: "Luckiest Guy", cursive;
-	font-weight: 400;
-	font-style: normal;
-} */
-	
-	/* .navbar {
-    width: 100%;
-    height: 75px;
-    background-color: green;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-  .navbaritem {
-    width: 25%;
-    float: left;
-    border-radius: 10px;
+/* Leaderboard specific styles */
+.hero {
+	text-align: center;
+	margin-bottom: 1rem;
 }
 
-	.navbaritem input {
-    width: 48px;
-    height: 48px;
-    float: none;
-    margin-left: 25%;
-    margin-top: 10%;
-}
-	 */
-	
-	#sort {
-		width: fit-content; /* Adjust width to content */
-    	margin: 0 auto; /* Centers horizontally */
-		padding: 0px 10px 30px 10px;
-		font-size: 20px;
-	}
-	
-	h1{
-		text-align: center;
-	}
-	
-/* 		
-	.list {
-		align-content: 
-		justify-content: ;
-		width: ;
-		background-color: ;
-		padding: 0px 0px;
-		margin: 0px;
-		font-size: ;
-	} */
 
-	.catgories, th {
-		font-size: 24px;
-}
-	
-	table {
-		margin: auto;
-		border-style: solid;
-		border-color: black;
-		border-radius: 8px;
-		background-color: black;
-	}
-	
-	tr {
-		padding: 10px;
-		margin: 10px;
-		background-color: white;
-		font-size: 18px;
+
+#sort {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1.5rem;
+	gap: 0.5rem;
 }
 
-	td {
-		padding: 16px 20px;
-		background-color: ;
+#sort label {
+	font-weight: bold;
+	color: #333;
 }
 
-	#highlight {
-	background-color: yellow;
+#sortlist {
+	padding: 0.5rem;
+	border-radius: 8px;
+	background-color: white;
+	cursor: pointer;
 }
 
-	#list {
-		overflow-y: scroll;
-		height: 550px;
-	}
-	
-
-
-/*
-@media only screen and (max-width : 1281px) and (min-width : 701px){
-	
+#sortlist:focus {
+	outline: none;
+	border-color: #2E7D32;
+	box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
-@media only screen and (max-width : 1600px) and (min-width : 1281px){
-	
-}*/
+#list {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 4rem;
+}
+
+.table-container {
+	width: 90%;
+	max-width: 500px;
+	max-height: 540px; 
+	overflow-y: auto; 
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#list table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	overflow: hidden;
+}
+
+/* Make header sticky when scrolling */
+#list thead {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+#list th {
+	background-color: #4CAF50;
+	color: white;
+	font-weight: bold;
+	text-align: left;
+	padding: 12px 15px;
+	font-size: 1.1rem;
+}
+
+#list td {
+	padding: 12px 15px;
+	border-bottom: 1px solid #eee;
+	font-size: 1rem;
+}
+
+#list tr:last-child td {
+	border-bottom: none;
+}
+
+#list tr {
+	background-color: #f9f9f9;
+}
+
+#highlight {
+	background-color: #FFEB3B !important;
+	font-weight: bold;
+}
+
+#highlight:hover {
+	background-color: #FDD835 !important;
+}
+
+/* Top 3 players styling */
+#list tr:nth-child(1) td:last-child {
+	font-weight: bold;
+	color: #D4AF37; /* Gold */
+}
+
+#list tr:nth-child(2) td:last-child {
+	font-weight: bold;
+	color: #C0C0C0; /* Silver */
+}
+
+#list tr:nth-child(3) td:last-child {
+	font-weight: bold;
+	color: #CD7F32; /* Bronze */
+}
+
+/* Customize scrollbar for better appearance */
+.table-container::-webkit-scrollbar {
+	width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 0 12px 12px 0;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+	background: #4CAF50;
+	border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+	background: #45a049;
+}

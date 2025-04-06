@@ -69,7 +69,7 @@ const initializeServer = () => {
   app.get('/', (req, res) => {
     const possibleIndexPaths = [
       path.join(__dirname,  'index.html'),
-      path.join(__dirname, 'public', 'index1.html'),
+      path.join(__dirname, 'public', 'UserPage.html'),
       path.join(__dirname, 'public', 'html', 'index.html')
     ];
 

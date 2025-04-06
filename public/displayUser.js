@@ -52,11 +52,11 @@ async function logAllUsers() {
     const userPoints = userInfo.points;
     const usersCollection = collection(db, "users");
     document.getElementById("username").textContent += userName;
-    document.getElementById("points").textContent += ` ${userPoints} `;
+    document.getElementById("points").textContent += `: ${userPoints} `;
   } catch (error) {}
 }
 
-document.getElementById("button").addEventListener("click", addPoints);
+//document.getElementById("button").addEventListener("click", addPoints);
 
 async function addPoints() {
   let userInfo = await getUserInfo();
@@ -70,5 +70,4 @@ async function addPoints() {
   });
 
   document.getElementById("points").textContent = ` ${userPoints + 1} `;
-  console.log(userPoints + 1);
 }

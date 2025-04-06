@@ -270,6 +270,23 @@ label {
   opacity: 1;
   visibility: visible;
 }
+    /* Additional styles for messages */
+    #authMessage {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    /* Success message style */
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    
+    /* Error message style */
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
 
 .welcome-content {
   background: rgba(76, 187, 23, 0.9);

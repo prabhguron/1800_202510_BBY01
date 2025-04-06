@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TossRite</title>
+    <title>TossRite - Leaderboard</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/styles/template.css" />
     <link rel="stylesheet" href="/styles/leaderboard.css" />
-    <link
+    <link  
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
@@ -30,32 +30,36 @@
         </div>
 
         <div id="sort">
-          <label for="">Sort by:</label>
+          <label for="sortlist">Sort by:</label>
           <select id="sortlist">
             <option value="top">Top</option>
             <option value="bottom">Bottom</option>
           </select>
         </div>
 
-        <div id="list"></div>
+        <div id="list">
+          <!-- This will be filled by JavaScript -->
+        </div>
       </div>
+      
       <footer class="footer">
         <div class="icon-container">
-          <a href="../index1.html"
-            ><span class="material-symbols-outlined">home</span></a
-          >
-          <a href="Plantlevel.html"
-            ><span class="material-symbols-outlined">psychiatry</span></a
-          >
-          <a href="leaderboard.html"
-            ><span class="material-symbols-outlined">leaderboard</span></a
-          >
-          <a href="community.html"
-            ><span class="material-symbols-outlined">forum</span></a
-          >
+          <a href="../UserPage.html" aria-label="Home">
+            <span class="material-symbols-outlined">home</span>
+          </a>
+          <a href="Plantlevel.html" aria-label="Plant level">
+            <span class="material-symbols-outlined">psychiatry</span>
+          </a>
+          <div class="navbaritem">
+            <img src="../images/leaderboard.png" alt="Leaderboard"/>
+          </div>
+          <a href="community.html" aria-label="Community">
+            <span class="material-symbols-outlined">forum</span>
+          </a>
         </div>
       </footer>
     </div>
+    
+    <script type="module" src="/leaderboard.js"></script>
   </body>
-  <script type="module" src="/leaderboard.js"></script>
 </html>
