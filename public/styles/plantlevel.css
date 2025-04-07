@@ -1,20 +1,10 @@
-/* body {
-    background-image: url("/images/background.jpg");
-    background-size: cover;
-} */
-
-
 #user-image {
-
 height: 20%;
-width: 20%;
-border: 1px solid black;
+width: 80%;
 border-radius: 100px;
 
 }
 .containerPlant{
-    border: 1px solid black;
-
     display: flex;
     justify-content: center;
     align-items: center;
