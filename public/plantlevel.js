@@ -15,7 +15,8 @@ const pointImages = [
   { min: 0, max: 9, image: "/images/level1.png" },
   { min: 10, max: 19, image: "/images/level2.png" },
   { min: 20, max: 29, image: "/images/level3.jpg" },
-  { min: 30, max: Infinity, image: "/images/level2.png" },//Use this
+  { min: 30, max: 39, image: "/images/level4.jpg" },
+  { min: 40, max: Infinity, image: "/images/level5.png" },
 ];
 
 // Function to determine the correct image
